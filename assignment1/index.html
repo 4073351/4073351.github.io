@@ -9,6 +9,22 @@
       body {
         background-color: #14144e;
         font-family: "Segoe UI", sans-serif;
+
+        cursor: none;
+      }
+
+      #custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background-color: rgba(188, 153, 237, 0.884);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.05s ease-out;
       }
 
       h1 {
@@ -35,6 +51,18 @@
       details {
         color: #ffffff;
         text-align: center;
+      }
+
+      summary {
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1.1em;
+        color: #ffffff;
+        transition: color 0.3s ease;
+      }
+
+      summary:hover {
+        color: rgba(188, 153, 237, 0.884);
       }
 
       .answer-box {
@@ -71,6 +99,17 @@
   />
 
   <body>
+    <div id="custom-cursor"></div>
+
+    <script>
+      const cursor = document.getElementById("custom-cursor");
+
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.top = e.clientY + "px";
+        cursor.style.left = e.clientX + "px";
+      });
+    </script>
+
     <h1>Assignment 1</h1>
 
     <h2>Name: Jie Liu</h2>
